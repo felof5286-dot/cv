@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سيرتي الذاتية | فيلوباتير عصام</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="hero">
+        <div class="container">
+            <img src="me.png" alt="صورتك الشخصية" class="profile-img">
+            <h1> فيلوباتير عصام</h1>
+            <p class="job-title">أنا <span class="typing-effect"></span></p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="about" class="card">
+            <h2>نبذة عني</h2>
+            <p>
+    مطور واجهات أمامية للمواقع الإلكترونية وطالب علوم حاسوب، متخصص في علوم الحاسوب والإحصاء. أُكرّس جهودي لتصميم تجارب ويب فائقة الاستجابة، تعتمد على البيانات، وتتميز بجاذبية بصرية مذهلة. أقوم ببناء واجهات مستخدم عالية الأداء وقابلة للتوسع، مع بنية واجهة مستخدم نظيفة.
+            </p>
+        </section>
+
+        <section id="experience" class="card">
+            <h2>الخبرة العملية</h2>
+            <div class="job">
+                <h3>Front-End Web Developer</h3>
+                <p class="job-date"> 2024 - حتى الآن</p>
+            </div>
+             <div class="job">
+                <h3>Sales</h3>
+                <p class="company-name">سيلز في محل تلفونات </p>
+                <p class="job-date"> 2021 - 2024</p>
+            </div>
+        </section>
+
+        <section id="skills" class="card">
+            <h2>المهارات</h2>
+            <div class="skills-container">
+                <span class="skill">C</span>
+                <span class="skill">C++</span>
+                <span class="skill">Problem solving</span>
+                <span class="skill">HTML5</span>
+                <span class="skill">CSS3</span>
+                <span class="skill">JavaScript</span>
+                <span class="skill">React</span>
+                <span class="skill">Node.js</span>
+                <span class="skill">إدارة المشاريع</span>
+            </div>
+        </section>
+
+        <section id="education" class="card">
+            <h2>التعليم</h2>
+            <div class="education-item">
+                 <h3>طالب في كليه علوم تخصص الاحصاء وعلوم الحاسب</h3>
+                <p class="company-name">حامعه عين شمس</p>
+                <p class="job-date"> 2025 - حتى الآن</p>
+            </div>
+        </section>
+
+        <section id="contact" class="card">
+            <h2>تواصل معي</h2>
+            <p>إذا كنت مهتمًا بالعمل معي، لا تتردد في التواصل!</p>
+            <div class="contact-methods">
+                <a href="mailto:your.felof5286@gmail.com" class="contact-btn">أرسل بريدًا إلكترونيًا</a>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/share/1GJXYkukAZ/" target="_blank" class="social-icon"><i class="fab fa-facebook"></i></a>
+                    <a href="https://wa.me/qr/PATR2ET2WR4EI1" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/felobateressam?igsh=MWRldDdwY2dpNm5hZw==" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026, صُنع بحب بواسطة "فيلوباتير عصام"</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- تأثير الكتابة المتحركة ---
+        const typingText = document.querySelector('.typing-effect');
+        const roles = ["مطور واجهات أمامية", "مصمم مواقع", "مستقل"];
+        let roleIndex = 0;
+        let charIndex = 0;
+
+        function type() {
+            if (charIndex < roles[roleIndex].length) {
+                typingText.textContent += roles[roleIndex].charAt(charIndex);
+                charIndex++;
+                setTimeout(type, 100);
+            } else {
+                setTimeout(erase, 2000);
+            }
+        }
+
+        function erase() {
+            if (charIndex > 0) {
+                typingText.textContent = roles[roleIndex].substring(0, charIndex - 1);
+                charIndex--;
+                setTimeout(erase, 50);
+            } else {
+                roleIndex = (roleIndex + 1) % roles.length;
+                setTimeout(type, 500);
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", () => setTimeout(type, 500));
+
+        // --- حركات الظهور عند التمرير ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

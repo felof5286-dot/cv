@@ -1,0 +1,244 @@
+/* --- المتغيرات العامة والألوان --- */
+:root {
+    --primary-color: #2c3e50; /* كحلي غامق */
+    --secondary-color: #3498db; /* أزرق ساطع */
+    --background-color: #f4f6f9; /* رمادي فاتح للخلفية */
+    --text-color: #34495e; /* لون النص الرئيسي */
+    --card-bg-color: #ffffff; /* أبيض */
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    --border-radius: 8px;
+}
+
+/* --- إعدادات أساسية --- */
+body {
+    font-family: 'Cairo', sans-serif;
+    margin: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.7;
+    direction: rtl; /* دعم اللغة العربية */
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- قسم الهيدر (البطل) --- */
+.hero {
+    background-color: var(--primary-color);
+    color: var(--card-bg-color);
+    text-align: center;
+    padding: 60px 20px;
+    border-bottom-left-radius: 50% 20%;
+    border-bottom-right-radius: 50% 20%;
+    margin-bottom: 40px;
+}
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 5px solid var(--secondary-color);
+    object-fit: cover;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.profile-img:hover {
+    transform: scale(1.05);
+}
+
+.hero h1 {
+    margin: 15px 0 5px;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.job-title {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--secondary-color);
+    margin: 0;
+}
+
+/* --- تأثير الكتابة --- */
+.typing-effect {
+    border-left: 2px solid var(--secondary-color); /* هذا يمثل مؤشر الكتابة */
+    padding-left: 5px;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+/* --- تعديل على البطاقات لإضافة حركة الظهور --- */
+.card {
+    transition: transform 0.5s ease, opacity 0.5s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    transform: translateY(30px);
+}
+/* --- تصميم البطاقات (Card) --- */
+.card {
+    background-color: var(--card-bg-color);
+    border-radius: var(--border-radius);
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow);
+    transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease, opacity 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card h2 {
+    color: var(--primary-color);
+    border-bottom: 3px solid var(--secondary-color);
+    padding-bottom: 10px;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+/* --- قسم الخبرة --- */
+.job {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.job:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.job h3 {
+    margin: 0 0 5px;
+    color: var(--secondary-color);
+}
+
+.company-name {
+    font-weight: 600;
+    margin: 0;
+}
+
+.job-date, .education-date {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
+
+.job ul {
+    padding-right: 20px; /* للمحاذاة مع النص العربي */
+}
+
+/* --- قسم المهارات --- */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skill {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+.contact-methods {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    color: var(--secondary-color);
+    border: 2px solid var(--secondary-color);
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background-color: var(--secondary-color);
+    color: white;
+    transform: translateY(-5px) scale(1.1);
+}
+.skill:hover {
+    background-color: var(--primary-color);
+}
+
+/* --- قسم التواصل --- */
+.contact-btn {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-btn:hover {
+    background-color: #2980b9; /* درجة أغمق من الأزرق */
+    transform: translateY(-2px);
+}
+
+/* --- الفوتر --- */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    background-color: var(--primary-color);
+    color: #ecf0f1;
+}
+
+/* --- تصميم متجاوب (Responsive) للشاشات الصغيرة --- */
+@media (max-width: 768px) {
+    .hero {
+        padding: 40px 20px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .profile-img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .card {
+        padding: 20px;
+    }
+}
